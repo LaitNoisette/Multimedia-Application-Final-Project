@@ -1,11 +1,16 @@
-#include "stdafx.h"
-#include <opencv2/opencv.hpp>
-#include <iostream>
+#include "cannyEdgeDetection.h"
 
-using namespace cv;
-using namespace std;
-
-void cannyEdgeDetection(Mat &inputImage, double lowThreshold ,double highThreshold, int kernel) {
-	Mat detectedEdges = cv::Mat::zeros(inputImage.size(),inputImage.type());
-	Canny(inputImage, detectedEdges, lowThreshold, highThreshold, kernel);
+cannyEdgeDetection::cannyEdgeDetection(Mat &inputImage, double inputLowThreshold, double input_HighThreshold, int inputKernel) {
+	Image = inputImage;
+	lowThreshold = inputLowThreshold;
+	highThreshold = input_HighThreshold;
+	kernel = inputKernel;
 }
+
+void cannyEdgeDetection::transform() {
+	Mat detectedEdges = cv::Mat::zeros(Image.size(),Image.type());
+	Canny(iImage, detectedEdges, lowThreshold, highThreshold, kernel);
+}
+
+
+
