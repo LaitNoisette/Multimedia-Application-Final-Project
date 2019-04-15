@@ -152,7 +152,10 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cannyEdgeDetection.cpp" />
     <ClCompile Include="dilatation_erosion.cpp" />
+    <ClCompile Include="lighten_darken.cpp" />
+    <ClCompile Include="panorama_stitching.cpp" />
     <ClCompile Include="ProjetMultimediaApplication.cpp" />
     <ClCompile Include="resize.cpp" />
     <ClCompile Include="stdafx.cpp">
