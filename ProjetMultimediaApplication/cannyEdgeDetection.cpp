@@ -9,8 +9,10 @@ cannyEdgeDetection::cannyEdgeDetection(Mat &inputImage, double inputLowThreshold
 
 void cannyEdgeDetection::transform() {
 	Mat detectedEdges = cv::Mat::zeros(Image.size(),Image.type());
-	Canny(iImage, detectedEdges, lowThreshold, highThreshold, kernel);
+	Canny(Image, detectedEdges, lowThreshold, highThreshold, kernel);
 }
 
 
+cannyEdgeDetection::~cannyEdgeDetection() {
 
+}

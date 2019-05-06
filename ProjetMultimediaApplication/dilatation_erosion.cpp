@@ -1,6 +1,4 @@
-#include "stdafx.h"
-#include <opencv2/opencv.hpp>
-#include <iostream>
+#include "dilatation_erosion.h"
 
 using namespace cv;
 using namespace std;
