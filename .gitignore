@@ -242,3 +242,5 @@ ModelManifest.xml
 .fake/
 
 CMakeLists.txt
+cmake-build-debug/
+.idea/
