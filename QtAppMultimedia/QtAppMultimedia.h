@@ -12,6 +12,7 @@ public:
 
 	public slots:
 void onPushButtonClick();
+void onDilatationClick();
 
 private:
 	Ui::QtAppMultimediaClass ui;

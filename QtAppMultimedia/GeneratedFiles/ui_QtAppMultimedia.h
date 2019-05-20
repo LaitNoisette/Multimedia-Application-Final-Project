@@ -53,6 +53,7 @@ public:
         QtAppMultimediaClass->resize(1422, 823);
         actiontiti = new QAction(QtAppMultimediaClass);
         actiontiti->setObjectName(QString::fromUtf8("actiontiti"));
+        actiontiti->setCheckable(false);
         actionDilatation = new QAction(QtAppMultimediaClass);
         actionDilatation->setObjectName(QString::fromUtf8("actionDilatation"));
         actionErosion = new QAction(QtAppMultimediaClass);
@@ -116,6 +117,7 @@ public:
         QObject::connect(pushButton, SIGNAL(clicked()), QtAppMultimediaClass, SLOT(onPushButtonClick()));
         QObject::connect(pushButton, SIGNAL(clicked()), menuBar, SLOT(hide()));
         QObject::connect(PictureApp, SIGNAL(linkHovered(QString)), QtAppMultimediaClass, SLOT(test(QString)));
+        QObject::connect(actionDilatation, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onDilatationClick()));
 
         QMetaObject::connectSlotsByName(QtAppMultimediaClass);
     } // setupUi

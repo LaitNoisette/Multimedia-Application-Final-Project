@@ -107,6 +107,9 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actiontiti">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Picture</string>
    </property>
@@ -155,7 +158,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>79</x>
-     <y>565</y>
+     <y>774</y>
     </hint>
     <hint type="destinationlabel">
      <x>316</x>
@@ -171,7 +174,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>53</x>
-     <y>565</y>
+     <y>774</y>
     </hint>
     <hint type="destinationlabel">
      <x>39</x>
@@ -195,9 +198,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionDilatation</sender>
+   <signal>triggered()</signal>
+   <receiver>QtAppMultimediaClass</receiver>
+   <slot>onDilatationClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>710</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onPushButtonClick()</slot>
   <slot>test(QString)</slot>
+  <slot>onDilatationClick()</slot>
  </slots>
 </ui>
