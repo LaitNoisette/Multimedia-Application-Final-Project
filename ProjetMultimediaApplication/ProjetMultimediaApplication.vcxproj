@@ -148,10 +148,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OpenCV_wraper.h" />
+    <ClInclude Include="OpenCV_wrapper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OpenCV_wraper.cpp" />
+    <ClCompile Include="OpenCV_wrapper.cpp" />
     <ClCompile Include="ProjetMultimediaApplication.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

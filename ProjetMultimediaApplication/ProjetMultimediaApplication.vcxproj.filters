@@ -21,12 +21,12 @@
     <ClCompile Include="ProjetMultimediaApplication.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OpenCV_wraper.cpp">
+    <ClCompile Include="OpenCV_wrapper.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OpenCV_wraper.h">
+    <ClInclude Include="OpenCV_wrapper.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
