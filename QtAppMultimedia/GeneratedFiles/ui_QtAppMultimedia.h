@@ -115,9 +115,9 @@ public:
 
         retranslateUi(QtAppMultimediaClass);
         QObject::connect(pushButton, SIGNAL(clicked()), QtAppMultimediaClass, SLOT(onPushButtonClick()));
-        QObject::connect(pushButton, SIGNAL(clicked()), menuBar, SLOT(hide()));
         QObject::connect(PictureApp, SIGNAL(linkHovered(QString)), QtAppMultimediaClass, SLOT(test(QString)));
         QObject::connect(actionDilatation, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onDilatationClick()));
+        QObject::connect(actionErosion, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onErosionClick()));
 
         QMetaObject::connectSlotsByName(QtAppMultimediaClass);
     } // setupUi

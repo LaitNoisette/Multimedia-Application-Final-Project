@@ -167,22 +167,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>menuBar</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>53</x>
-     <y>774</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>39</x>
-     <y>6</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>PictureApp</sender>
    <signal>linkHovered(QString)</signal>
    <receiver>QtAppMultimediaClass</receiver>
@@ -214,10 +198,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionErosion</sender>
+   <signal>triggered()</signal>
+   <receiver>QtAppMultimediaClass</receiver>
+   <slot>onErosionClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>710</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onPushButtonClick()</slot>
   <slot>test(QString)</slot>
   <slot>onDilatationClick()</slot>
+  <slot>onErosionClick()</slot>
  </slots>
 </ui>

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <QDialog>
 #include "ui_QtAppMultimedia.h"
 
 class QtAppMultimedia : public QMainWindow
@@ -13,7 +14,9 @@ public:
 	public slots:
 void onPushButtonClick();
 void onDilatationClick();
+void onErosionClick();
 
 private:
 	Ui::QtAppMultimediaClass ui;
+	QDialog secDialog;
 };

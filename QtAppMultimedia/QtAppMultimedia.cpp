@@ -1,4 +1,6 @@
 #include "QtAppMultimedia.h"
+#include "QtDialogErosion.h"
+#include "QtDialogDilatation.h"
 
 QtAppMultimedia::QtAppMultimedia(QWidget *parent)
 	: QMainWindow(parent)
@@ -12,5 +14,13 @@ void QtAppMultimedia::onPushButtonClick() {
 }
 
 void QtAppMultimedia::onDilatationClick() {
+	QtDialogDilatation dialogDilatation;
+	dialogDilatation.setModal(false);
+	dialogDilatation.exec();
+}
 
+void QtAppMultimedia::onErosionClick() {
+	QtDialogErosion dialogErosion;
+	dialogErosion.setModal(false);
+	dialogErosion.exec();
 }
