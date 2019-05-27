@@ -10,7 +10,7 @@ using namespace std;
 using namespace cv;
 
 
-class OpenCV_wraper{
+class OpenCV_wrapper{
 private:
 	Mat &Image;
 	double lowThreshold;

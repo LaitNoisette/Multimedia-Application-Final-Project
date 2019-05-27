@@ -1,29 +1,29 @@
-#include "OpenCV_wraper.h"
+#include "OpenCV_wrapper.h"
 
-void OpenCV_wraper::cannyEdgeDetection(Mat &inputImage, double inputLowThreshold, double input_HighThreshold, int inputKernel) {
+void OpenCV_wrapper::cannyEdgeDetection(Mat &inputImage, double inputLowThreshold, double input_HighThreshold, int inputKernel) {
 	Image = inputImage;
 	lowThreshold = inputLowThreshold;
 	highThreshold = input_HighThreshold;
 	kernel = inputKernel;
 }
 
-void OpenCV_wraper::transform() {
+void OpenCV_wrapper::transform() {
 	Mat detectedEdges = cv::Mat::zeros(Image.size(), Image.type());
 	Canny(Image, detectedEdges, lowThreshold, highThreshold, kernel);
 }
 
 
-void OpenCV_wraper::dilatation(Mat &inputImage, int dilatationSize) {
+void OpenCV_wrapper::dilatation(Mat &inputImage, int dilatationSize) {
 	Mat kernelDilatation = getStructuringElement(MORPH_DILATE, Size(dilatationSize, dilatationSize));
 	dilate(inputImage, inputImage, kernelDilatation);
 }
 
-void OpenCV_wraper::erosion(Mat &inputImage, int erosionSize) {
+void OpenCV_wrapper::erosion(Mat &inputImage, int erosionSize) {
 	Mat kernelErosion = getStructuringElement(MORPH_ERODE, Size(erosionSize, erosionSize));
 	dilate(inputImage, inputImage, kernelErosion);
 }
 
-void OpenCV_wraper::mainDilatationErosion(Mat &inputImage, int choice) {
+void OpenCV_wrapper::mainDilatationErosion(Mat &inputImage, int choice) {
 	/*
 	erosion == 0
 	dilatation ==1
@@ -37,12 +37,12 @@ void OpenCV_wraper::mainDilatationErosion(Mat &inputImage, int choice) {
 	}
 }
 
-void OpenCV_wraper::lightenDarken(Mat &inputImage, int brightnessRatio) {
+void OpenCV_wrapper::lightenDarken(Mat &inputImage, int brightnessRatio) {
 	inputImage.convertTo(inputImage, -1, 1, brightnessRatio);
 }
 
 
-void OpenCV_wraper::panoramaStitching(char* listeImages[], int indiceListeImage) {
+void OpenCV_wrapper::panoramaStitching(char* listeImages[], int indiceListeImage) {
 	vector<Mat> imgs;
 	for (int i = 0; i < indiceListeImage; i++) {
 		Mat img = imread(listeImages[i]);
@@ -71,14 +71,14 @@ void OpenCV_wraper::panoramaStitching(char* listeImages[], int indiceListeImage)
 
 };
 
-void OpenCV_wraper::resize2Dimension(Mat &inputImage, double sizeX, double sizeY) {
+void OpenCV_wrapper::resize2Dimension(Mat &inputImage, double sizeX, double sizeY) {
 	resize(inputImage, inputImage, Size(), sizeX, sizeY);
 }
 
-void OpenCV_wraper::resizeFactor(Mat &inputImage, double sizeFactor) {
+void OpenCV_wrapper::resizeFactor(Mat &inputImage, double sizeFactor) {
 	resize(inputImage, inputImage, Size2d(sizeFactor, sizeFactor));
 }
 
-void OpenCV_wraper::resizeMain(Mat &inputImage) {
+void OpenCV_wrapper::resizeMain(Mat &inputImage) {
 
 }

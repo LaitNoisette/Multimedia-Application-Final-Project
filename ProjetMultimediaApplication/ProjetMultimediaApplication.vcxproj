@@ -22,7 +22,7 @@
     <ProjectGuid>{62D948C9-E913-43B5-BD2E-88FC56A49556}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ProjetMultimediaApplication</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -148,10 +148,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OpenCV_wraper.h" />
+    <ClInclude Include="OpenCV_wrapper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OpenCV_wraper.cpp" />
+    <ClCompile Include="OpenCV_wrapper.cpp" />
     <ClCompile Include="ProjetMultimediaApplication.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
