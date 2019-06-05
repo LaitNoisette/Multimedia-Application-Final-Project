@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1422</width>
-    <height>823</height>
+    <width>1400</width>
+    <height>780</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>730</y>
+      <x>10</x>
+      <y>40</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QLabel" name="PictureApp">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>0</y>
+      <x>110</x>
+      <y>10</y>
       <width>1280</width>
       <height>720</height>
      </rect>
@@ -49,7 +49,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1422</width>
+     <width>1400</width>
      <height>21</height>
     </rect>
    </property>
@@ -57,7 +57,7 @@
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="actiontiti"/>
+    <addaction name="actionPictureFile"/>
    </widget>
    <widget class="QMenu" name="menuDilatation_Erosion">
     <property name="title">
@@ -70,6 +70,7 @@
     <property name="title">
      <string>Resizing</string>
     </property>
+    <addaction name="actionResizing"/>
    </widget>
    <widget class="QMenu" name="menuLighten_Darken">
     <property name="title">
@@ -106,12 +107,12 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actiontiti">
+  <action name="actionPictureFile">
    <property name="checkable">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Picture</string>
+    <string>Picture File</string>
    </property>
   </action>
   <action name="actionDilatation">
@@ -142,6 +143,11 @@
   <action name="actionStitching">
    <property name="text">
     <string>Stitching</string>
+   </property>
+  </action>
+  <action name="actionResizing">
+   <property name="text">
+    <string>Resizing</string>
    </property>
   </action>
  </widget>
@@ -214,11 +220,62 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionPictureFile</sender>
+   <signal>triggered()</signal>
+   <receiver>QtAppMultimediaClass</receiver>
+   <slot>onPictureFileClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>710</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionResizing</sender>
+   <signal>triggered()</signal>
+   <receiver>QtAppMultimediaClass</receiver>
+   <slot>onResizingClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>78</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>389</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLighten</sender>
+   <signal>triggered()</signal>
+   <receiver>QtAppMultimediaClass</receiver>
+   <slot>onLightenDarkenClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>389</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onPushButtonClick()</slot>
   <slot>test(QString)</slot>
   <slot>onDilatationClick()</slot>
   <slot>onErosionClick()</slot>
+  <slot>onResizingClick()</slot>
+  <slot>onPictureFileClick()</slot>
+  <slot>onLightenDarkenClick()</slot>
  </slots>
 </ui>

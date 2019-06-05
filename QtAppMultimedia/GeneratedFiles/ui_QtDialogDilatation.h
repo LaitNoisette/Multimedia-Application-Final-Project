@@ -47,6 +47,8 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
         retranslateUi(QtDialogDilatation);
+        QObject::connect(doubleSpinBox, SIGNAL(valueChanged(double)), QtDialogDilatation, SLOT(onChangeSize()));
+        QObject::connect(buttonBox, SIGNAL(accepted()), QtDialogDilatation, SLOT(close()));
 
         QMetaObject::connectSlotsByName(QtDialogDilatation);
     } // setupUi

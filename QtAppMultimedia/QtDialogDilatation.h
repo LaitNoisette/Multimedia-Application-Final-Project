@@ -10,7 +10,14 @@ class QtDialogDilatation : public QDialog
 public:
 	QtDialogDilatation(QWidget *parent = Q_NULLPTR);
 	~QtDialogDilatation();
+	
+	QDoubleSpinBox * doubleSpinBox;
+	QDialogButtonBox * buttonBox;
+
+	public slots:
+	
 
 private:
 	Ui::QtDialogDilatation ui;
+	
 };

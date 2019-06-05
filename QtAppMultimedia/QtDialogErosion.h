@@ -11,6 +11,9 @@ public:
 	QtDialogErosion(QWidget *parent = Q_NULLPTR);
 	~QtDialogErosion();
 
+	QDoubleSpinBox * doubleSpinBox;
+	QDialogButtonBox * buttonBox;
+
 private:
 	Ui::QtDialogErosion ui;
 };

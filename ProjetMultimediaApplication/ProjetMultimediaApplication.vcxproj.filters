@@ -18,9 +18,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ProjetMultimediaApplication.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="OpenCV_wrapper.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>

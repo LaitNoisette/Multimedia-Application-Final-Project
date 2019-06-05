@@ -26,13 +26,14 @@ QT_BEGIN_NAMESPACE
 class Ui_QtAppMultimediaClass
 {
 public:
-    QAction *actiontiti;
+    QAction *actionPictureFile;
     QAction *actionDilatation;
     QAction *actionErosion;
     QAction *actionLighten;
     QAction *actionDarken;
     QAction *actionPanorama;
     QAction *actionStitching;
+    QAction *actionResizing;
     QWidget *centralWidget;
     QPushButton *pushButton;
     QLabel *PictureApp;
@@ -50,10 +51,10 @@ public:
     {
         if (QtAppMultimediaClass->objectName().isEmpty())
             QtAppMultimediaClass->setObjectName(QString::fromUtf8("QtAppMultimediaClass"));
-        QtAppMultimediaClass->resize(1422, 823);
-        actiontiti = new QAction(QtAppMultimediaClass);
-        actiontiti->setObjectName(QString::fromUtf8("actiontiti"));
-        actiontiti->setCheckable(false);
+        QtAppMultimediaClass->resize(1400, 780);
+        actionPictureFile = new QAction(QtAppMultimediaClass);
+        actionPictureFile->setObjectName(QString::fromUtf8("actionPictureFile"));
+        actionPictureFile->setCheckable(false);
         actionDilatation = new QAction(QtAppMultimediaClass);
         actionDilatation->setObjectName(QString::fromUtf8("actionDilatation"));
         actionErosion = new QAction(QtAppMultimediaClass);
@@ -66,19 +67,21 @@ public:
         actionPanorama->setObjectName(QString::fromUtf8("actionPanorama"));
         actionStitching = new QAction(QtAppMultimediaClass);
         actionStitching->setObjectName(QString::fromUtf8("actionStitching"));
+        actionResizing = new QAction(QtAppMultimediaClass);
+        actionResizing->setObjectName(QString::fromUtf8("actionResizing"));
         centralWidget = new QWidget(QtAppMultimediaClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(40, 730, 75, 23));
+        pushButton->setGeometry(QRect(10, 40, 75, 23));
         PictureApp = new QLabel(centralWidget);
         PictureApp->setObjectName(QString::fromUtf8("PictureApp"));
-        PictureApp->setGeometry(QRect(10, 0, 1280, 720));
+        PictureApp->setGeometry(QRect(110, 10, 1280, 720));
         PictureApp->setAlignment(Qt::AlignCenter);
         QtAppMultimediaClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtAppMultimediaClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1422, 21));
+        menuBar->setGeometry(QRect(0, 0, 1400, 21));
         menutoto = new QMenu(menuBar);
         menutoto->setObjectName(QString::fromUtf8("menutoto"));
         menuDilatation_Erosion = new QMenu(menuBar);
@@ -105,9 +108,10 @@ public:
         menuBar->addAction(menuLighten_Darken->menuAction());
         menuBar->addAction(menuPanorama_Stitching->menuAction());
         menuBar->addAction(menuCanny_Edge_Detection->menuAction());
-        menutoto->addAction(actiontiti);
+        menutoto->addAction(actionPictureFile);
         menuDilatation_Erosion->addAction(actionDilatation);
         menuDilatation_Erosion->addAction(actionErosion);
+        menuResizing->addAction(actionResizing);
         menuLighten_Darken->addAction(actionLighten);
         menuLighten_Darken->addAction(actionDarken);
         menuPanorama_Stitching->addAction(actionPanorama);
@@ -118,6 +122,9 @@ public:
         QObject::connect(PictureApp, SIGNAL(linkHovered(QString)), QtAppMultimediaClass, SLOT(test(QString)));
         QObject::connect(actionDilatation, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onDilatationClick()));
         QObject::connect(actionErosion, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onErosionClick()));
+        QObject::connect(actionPictureFile, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onPictureFileClick()));
+        QObject::connect(actionResizing, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onResizingClick()));
+        QObject::connect(actionLighten, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onLightenDarkenClick()));
 
         QMetaObject::connectSlotsByName(QtAppMultimediaClass);
     } // setupUi
@@ -125,13 +132,14 @@ public:
     void retranslateUi(QMainWindow *QtAppMultimediaClass)
     {
         QtAppMultimediaClass->setWindowTitle(QApplication::translate("QtAppMultimediaClass", "QtAppMultimedia", nullptr));
-        actiontiti->setText(QApplication::translate("QtAppMultimediaClass", "Picture", nullptr));
+        actionPictureFile->setText(QApplication::translate("QtAppMultimediaClass", "Picture File", nullptr));
         actionDilatation->setText(QApplication::translate("QtAppMultimediaClass", "Dilatation", nullptr));
         actionErosion->setText(QApplication::translate("QtAppMultimediaClass", "Erosion", nullptr));
         actionLighten->setText(QApplication::translate("QtAppMultimediaClass", "Lighten", nullptr));
         actionDarken->setText(QApplication::translate("QtAppMultimediaClass", "Darken", nullptr));
         actionPanorama->setText(QApplication::translate("QtAppMultimediaClass", "Panorama", nullptr));
         actionStitching->setText(QApplication::translate("QtAppMultimediaClass", "Stitching", nullptr));
+        actionResizing->setText(QApplication::translate("QtAppMultimediaClass", "Resizing", nullptr));
         pushButton->setText(QApplication::translate("QtAppMultimediaClass", "PushButton", nullptr));
         PictureApp->setText(QString());
         menutoto->setTitle(QApplication::translate("QtAppMultimediaClass", "Settings", nullptr));

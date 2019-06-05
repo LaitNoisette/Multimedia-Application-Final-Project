@@ -47,6 +47,7 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
         retranslateUi(QtDialogErosion);
+        QObject::connect(buttonBox, SIGNAL(accepted()), QtDialogErosion, SLOT(close()));
 
         QMetaObject::connectSlotsByName(QtDialogErosion);
     } // setupUi

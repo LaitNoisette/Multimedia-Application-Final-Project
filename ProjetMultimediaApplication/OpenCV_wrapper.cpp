@@ -1,44 +1,91 @@
+
 #include "OpenCV_wrapper.h"
 
-void OpenCV_wrapper::cannyEdgeDetection(Mat &inputImage, double inputLowThreshold, double input_HighThreshold, int inputKernel) {
-	Image = inputImage;
-	lowThreshold = inputLowThreshold;
-	highThreshold = input_HighThreshold;
-	kernel = inputKernel;
+OpenCV_wrapper::OpenCV_wrapper() {
+	picture = Mat();
 }
 
-void OpenCV_wrapper::transform() {
-	Mat detectedEdges = cv::Mat::zeros(Image.size(), Image.type());
-	Canny(Image, detectedEdges, lowThreshold, highThreshold, kernel);
+void OpenCV_wrapper::setImage(String imageFileName) {
+	picture = imread(imageFileName);
+}
+
+void OpenCV_wrapper::createCopyImage() {
+	pictureTemp = Mat(picture);
+}
+
+void OpenCV_wrapper::savePicture(String imageFileName) {
+	imwrite(imageFileName, picture);
+}
+
+void OpenCV_wrapper::saveTempPicture(String imageFileName) {
+	imwrite(imageFileName, pictureTemp);
+}
+
+void OpenCV_wrapper::deleteCopyImage(String imageFileName) {
+	remove(imageFileName.c_str());
 }
 
 
-void OpenCV_wrapper::dilatation(Mat &inputImage, int dilatationSize) {
-	Mat kernelDilatation = getStructuringElement(MORPH_DILATE, Size(dilatationSize, dilatationSize));
-	dilate(inputImage, inputImage, kernelDilatation);
-}
-
-void OpenCV_wrapper::erosion(Mat &inputImage, int erosionSize) {
-	Mat kernelErosion = getStructuringElement(MORPH_ERODE, Size(erosionSize, erosionSize));
-	dilate(inputImage, inputImage, kernelErosion);
-}
-
-void OpenCV_wrapper::mainDilatationErosion(Mat &inputImage, int choice) {
-	/*
-	erosion == 0
-	dilatation ==1
-	*/
-	if (choice == 0) {
-
+void OpenCV_wrapper::cannyEdgeDetection(double lowThreshold, double highThreshold, int kernel, bool validation) {
+	if (lowThreshold > highThreshold) {
+		double tempThres = highThreshold;
+		highThreshold = lowThreshold;
+		lowThreshold = tempThres;
 	}
-	else if (choice == 1)
+
+	transform(lowThreshold, highThreshold, kernel, validation);
+}
+
+void OpenCV_wrapper::transform(double lowThreshold, double highThreshold, int kernel, bool validation) {
+	if (validation) {
+		Mat detectedEdges = cv::Mat::zeros(picture.size(), picture.type());
+		Canny(picture, detectedEdges, lowThreshold, highThreshold, kernel);
+	}
+	else
 	{
-
+		Mat detectedEdges = cv::Mat::zeros(pictureTemp.size(), pictureTemp.type());
+		Canny(pictureTemp, detectedEdges, lowThreshold, highThreshold, kernel);
 	}
+	
 }
 
-void OpenCV_wrapper::lightenDarken(Mat &inputImage, int brightnessRatio) {
-	inputImage.convertTo(inputImage, -1, 1, brightnessRatio);
+
+void OpenCV_wrapper::dilatation(int dilatationSize,bool validation) {
+	if (validation) {
+		Mat kernelDilatation = getStructuringElement(MORPH_DILATE, Size(dilatationSize, dilatationSize));
+		dilate(picture, picture, kernelDilatation);
+	}
+	else
+	{
+		Mat kernelDilatation = getStructuringElement(MORPH_DILATE, Size(dilatationSize, dilatationSize));
+		dilate(pictureTemp, pictureTemp, kernelDilatation);
+	}
+	
+}
+
+void OpenCV_wrapper::erosion(int erosionSize, bool validation) {
+	if (validation) {
+		Mat kernelErosion = getStructuringElement(MORPH_ERODE, Size(erosionSize, erosionSize));
+		dilate(picture, picture, kernelErosion);
+	}
+	else
+	{
+		Mat kernelErosion = getStructuringElement(MORPH_ERODE, Size(erosionSize, erosionSize));
+		dilate(pictureTemp, pictureTemp, kernelErosion);
+	}
+	
+}
+
+
+void OpenCV_wrapper::lightenDarken(int brightnessRatio,bool validation) {
+	if (validation) {
+
+	}
+	else
+	{
+		pictureTemp.convertTo(pictureTemp, -1, 1, brightnessRatio);
+	}
+	
 }
 
 
@@ -71,14 +118,24 @@ void OpenCV_wrapper::panoramaStitching(char* listeImages[], int indiceListeImage
 
 };
 
-void OpenCV_wrapper::resize2Dimension(Mat &inputImage, double sizeX, double sizeY) {
-	resize(inputImage, inputImage, Size(), sizeX, sizeY);
+void OpenCV_wrapper::resize2Dimension(double sizeX, double sizeY,bool validation) {
+	if (validation) {
+		
+	}
+	else
+	{
+		resize(pictureTemp, pictureTemp, Size2d(sizeX, sizeY));
+	}
+	
 }
 
-void OpenCV_wrapper::resizeFactor(Mat &inputImage, double sizeFactor) {
-	resize(inputImage, inputImage, Size2d(sizeFactor, sizeFactor));
-}
+void OpenCV_wrapper::resizeFactor(double sizeFactor,bool validation) {
+	if (validation) {
 
-void OpenCV_wrapper::resizeMain(Mat &inputImage) {
-
+	}
+	else
+	{
+		resize(pictureTemp, pictureTemp, Size2d(sizeFactor, sizeFactor));
+	}
+	
 }
