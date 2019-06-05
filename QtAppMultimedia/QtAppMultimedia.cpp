@@ -4,6 +4,7 @@
 #include "QtDialogFileDirectory.h"
 #include "QtDialogResize.h"
 #include "QtDialogLightenDarken.h"
+#include "QtDialogCannyEdgeDetection.h"
 
 #define CONNECTCAST(OBJECT,TYPE,FUNC) static_cast<void(OBJECT::*)(TYPE)>(&OBJECT::FUNC)
 
@@ -142,6 +143,7 @@ void QtAppMultimedia::onResizingValidation() {
 
 //LiGHTEN/DARKEN
 
+
 void QtAppMultimedia::onLightenDarkenClick() {
 	modelOpenCV.saveTempPicture(tempPictureFileDirectory.toStdString());
 	displayPicture(tempPictureFileDirectory);
@@ -170,6 +172,40 @@ void QtAppMultimedia::onLightenDarkenValidation() {
 
 	modelOpenCV.deleteCopyImage(tempPictureFileDirectory.toStdString());
 }
+
+
+//Canny Edge Detection
+
+
+void QtAppMultimedia::onCannyEdgeClick() {
+	modelOpenCV.saveTempPicture(tempPictureFileDirectory.toStdString());
+	displayPicture(tempPictureFileDirectory);
+
+	QtDialogCannyEdgeDetection * dialogCannyEdge = new QtDialogCannyEdgeDetection();
+	//Parameters canny edge
+	connect(dialogCannyEdge, &QtDialogCannyEdgeDetection::changeCannyEdgeParameters, this, &QtAppMultimedia::onCannyEdgeSizeChange);
+
+	connect(dialogCannyEdge->buttonBox, &QDialogButtonBox::accepted, this, &QtAppMultimedia::onCannyEdgeValidation);
+
+	dialogCannyEdge->setModal(false);
+	dialogCannyEdge->exec();
+}
+
+void QtAppMultimedia::onCannyEdgeSizeChange(int kernel, double lowThres, double highThres) {
+	modelOpenCV.cannyEdgeDetection(lowThres, highThres, kernel, false);
+
+	modelOpenCV.saveTempPicture(tempPictureFileDirectory.toStdString());
+	displayPicture(tempPictureFileDirectory);
+}
+
+void QtAppMultimedia::onCannyEdgeValidation() {
+	modelOpenCV.setImage(tempPictureFileDirectory.toStdString());
+	modelOpenCV.savePicture(pictureFileDirectory.toStdString());
+	displayPicture(pictureFileDirectory);
+
+	modelOpenCV.deleteCopyImage(tempPictureFileDirectory.toStdString());
+}
+
 
 //FILEHANDLE
 

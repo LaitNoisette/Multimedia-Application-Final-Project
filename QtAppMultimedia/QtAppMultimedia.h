@@ -34,6 +34,10 @@ void onLightenDarkenClick();
 void onLightenDarkenSizeChange(double lightDarkFactor);
 void onLightenDarkenValidation();
 
+void onCannyEdgeClick();
+void onCannyEdgeSizeChange(int kernel,double lowThres,double highThres);
+void onCannyEdgeValidation();
+
 void createTempPictureFileDirectory();
 
 private:

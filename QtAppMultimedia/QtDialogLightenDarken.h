@@ -13,6 +13,7 @@ public:
 
 	QDoubleSpinBox * lightDarkFactor;
 	QDialogButtonBox * buttonBox;
+
 	public slots:
 	void checkLightDarkFactor();
 
