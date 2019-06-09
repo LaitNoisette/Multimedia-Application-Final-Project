@@ -44,7 +44,16 @@ void OpenCV_wrapper::transform(double lowThreshold, double highThreshold, int ke
 	else
 	{
 		Mat detectedEdges = cv::Mat::zeros(pictureTemp.size(), pictureTemp.type());
-		Canny(pictureTemp, detectedEdges, lowThreshold, highThreshold, kernel);
+		Mat pictureTempGrayScale=Mat(pictureTemp.size(), CV_8UC1);
+
+		if (pictureTemp.channels() > 1) {
+			cvtColor(pictureTemp, pictureTempGrayScale, COLOR_BGR2GRAY);
+		}
+		
+		Mat cannyEdges = Mat(pictureTempGrayScale.size(), CV_8UC1);
+		
+		cv::Canny(pictureTempGrayScale, cannyEdges, lowThreshold, highThreshold, kernel);
+		pictureTempGrayScale.copyTo(pictureTemp, cannyEdges);
 	}
 	
 }

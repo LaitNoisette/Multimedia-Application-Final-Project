@@ -68,6 +68,9 @@ public:
 
         retranslateUi(QtDialogCannyEdgeDetection);
         QObject::connect(buttonBox, SIGNAL(accepted()), QtDialogCannyEdgeDetection, SLOT(close()));
+        QObject::connect(doubleSpinBox, SIGNAL(editingFinished()), QtDialogCannyEdgeDetection, SLOT(checkCannyEdgeParameters()));
+        QObject::connect(doubleSpinBox_2, SIGNAL(editingFinished()), QtDialogCannyEdgeDetection, SLOT(checkCannyEdgeParameters()));
+        QObject::connect(doubleSpinBox_3, SIGNAL(editingFinished()), QtDialogCannyEdgeDetection, SLOT(checkCannyEdgeParameters()));
 
         QMetaObject::connectSlotsByName(QtDialogCannyEdgeDetection);
     } // setupUi

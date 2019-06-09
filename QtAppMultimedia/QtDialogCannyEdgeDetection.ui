@@ -158,6 +158,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>doubleSpinBox_2</sender>
+   <signal>editingFinished()</signal>
+   <receiver>QtDialogCannyEdgeDetection</receiver>
+   <slot>checkCannyEdgeParameters()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinBox_3</sender>
+   <signal>editingFinished()</signal>
+   <receiver>QtDialogCannyEdgeDetection</receiver>
+   <slot>checkCannyEdgeParameters()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>checkCannyEdgeParameters()</slot>

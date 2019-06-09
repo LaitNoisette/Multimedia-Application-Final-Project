@@ -19,12 +19,12 @@
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>75</width>
+      <width>72</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Save</string>
     </property>
    </widget>
    <widget class="QLabel" name="PictureApp">
@@ -90,6 +90,7 @@
     <property name="title">
      <string>Canny Edge Detection</string>
     </property>
+    <addaction name="actionCanny_Edge_Detection"/>
    </widget>
    <addaction name="menutoto"/>
    <addaction name="menuDilatation_Erosion"/>
@@ -148,6 +149,11 @@
   <action name="actionResizing">
    <property name="text">
     <string>Resizing</string>
+   </property>
+  </action>
+  <action name="actionCanny_Edge_Detection">
+   <property name="text">
+    <string>Canny Edge Detection</string>
    </property>
   </action>
  </widget>
@@ -243,8 +249,8 @@
    <slot>onResizingClick()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>78</x>
-     <y>24</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>699</x>
@@ -268,6 +274,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionCanny_Edge_Detection</sender>
+   <signal>triggered()</signal>
+   <receiver>QtAppMultimediaClass</receiver>
+   <slot>onCannyEdgeClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>389</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onPushButtonClick()</slot>
@@ -277,5 +299,6 @@
   <slot>onResizingClick()</slot>
   <slot>onPictureFileClick()</slot>
   <slot>onLightenDarkenClick()</slot>
+  <slot>onCannyEdgeClick()</slot>
  </slots>
 </ui>

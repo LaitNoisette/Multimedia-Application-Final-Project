@@ -34,6 +34,7 @@ public:
     QAction *actionPanorama;
     QAction *actionStitching;
     QAction *actionResizing;
+    QAction *actionCanny_Edge_Detection;
     QWidget *centralWidget;
     QPushButton *pushButton;
     QLabel *PictureApp;
@@ -69,11 +70,13 @@ public:
         actionStitching->setObjectName(QString::fromUtf8("actionStitching"));
         actionResizing = new QAction(QtAppMultimediaClass);
         actionResizing->setObjectName(QString::fromUtf8("actionResizing"));
+        actionCanny_Edge_Detection = new QAction(QtAppMultimediaClass);
+        actionCanny_Edge_Detection->setObjectName(QString::fromUtf8("actionCanny_Edge_Detection"));
         centralWidget = new QWidget(QtAppMultimediaClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 40, 75, 23));
+        pushButton->setGeometry(QRect(10, 40, 72, 23));
         PictureApp = new QLabel(centralWidget);
         PictureApp->setObjectName(QString::fromUtf8("PictureApp"));
         PictureApp->setGeometry(QRect(110, 10, 1280, 720));
@@ -116,6 +119,7 @@ public:
         menuLighten_Darken->addAction(actionDarken);
         menuPanorama_Stitching->addAction(actionPanorama);
         menuPanorama_Stitching->addAction(actionStitching);
+        menuCanny_Edge_Detection->addAction(actionCanny_Edge_Detection);
 
         retranslateUi(QtAppMultimediaClass);
         QObject::connect(pushButton, SIGNAL(clicked()), QtAppMultimediaClass, SLOT(onPushButtonClick()));
@@ -125,6 +129,7 @@ public:
         QObject::connect(actionPictureFile, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onPictureFileClick()));
         QObject::connect(actionResizing, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onResizingClick()));
         QObject::connect(actionLighten, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onLightenDarkenClick()));
+        QObject::connect(actionCanny_Edge_Detection, SIGNAL(triggered()), QtAppMultimediaClass, SLOT(onCannyEdgeClick()));
 
         QMetaObject::connectSlotsByName(QtAppMultimediaClass);
     } // setupUi
@@ -140,7 +145,8 @@ public:
         actionPanorama->setText(QApplication::translate("QtAppMultimediaClass", "Panorama", nullptr));
         actionStitching->setText(QApplication::translate("QtAppMultimediaClass", "Stitching", nullptr));
         actionResizing->setText(QApplication::translate("QtAppMultimediaClass", "Resizing", nullptr));
-        pushButton->setText(QApplication::translate("QtAppMultimediaClass", "PushButton", nullptr));
+        actionCanny_Edge_Detection->setText(QApplication::translate("QtAppMultimediaClass", "Canny Edge Detection", nullptr));
+        pushButton->setText(QApplication::translate("QtAppMultimediaClass", "Save", nullptr));
         PictureApp->setText(QString());
         menutoto->setTitle(QApplication::translate("QtAppMultimediaClass", "Settings", nullptr));
         menuDilatation_Erosion->setTitle(QApplication::translate("QtAppMultimediaClass", "Dilatation/Erosion", nullptr));
